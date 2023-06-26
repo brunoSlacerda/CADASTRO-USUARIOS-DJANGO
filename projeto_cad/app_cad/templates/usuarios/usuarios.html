@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+</head>
+<style>
+       *{
+        padding:0;
+        margin:0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        background-image:linear-gradient(#B4BEC9,#DEEFE7 70%);
+        background-attachment: fixed;
+    }
+    #titulo{
+        padding-top: 20px;
+        text-align: center;
+        color: #f54e29d2
+    }
+    table{
+        border-collapse: collapse;
+        margin: auto;
+        background-color: white;
+        border: 2px;
+        margin-top: 20px;
+    }
+    tr,th,td{
+        
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+    tr:nth-child(2n){
+        background-color: rgba(128, 128, 128, 0.377);
+    }
+    header{
+        background-color: #ffd493bd;
+        height:100px;
+        text-align:center;
+    }
+    
+    a{
+        text-decoration: none;
+        color:black;
+    }
+</style>
+<body>
+    <header>
+        <a href={% url 'home' %}><h1 style="padding:30px">HOME</h1></a>
+    </header>
+    <h1 id="titulo">Usuários Cadastrados</h1>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario.id_usuario}}</td>
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.idade}}</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
